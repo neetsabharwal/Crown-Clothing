@@ -15,6 +15,7 @@ const defaultFormFields = {
 };
 
 const SignUpForm = () => {
+
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
 
@@ -43,8 +44,10 @@ const SignUpForm = () => {
         email,
         password
       );
+
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields(); // clear fields now once user successfully created.
+      
     } catch (err) {
       if (err.code === "auth/email-already-in-use") {
         alert("Email has already signed up!");

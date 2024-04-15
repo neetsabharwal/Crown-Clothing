@@ -4,7 +4,7 @@ import {
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword
 } from "../../utils/firebase/firebase.utils";
-import Button from "../button/button.component";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
 import { useState, useContext } from "react";
 
@@ -64,8 +64,8 @@ const SignInForm = () => {
           onChange={changeHandler}
         />
         <div className="buttons-container">
-        <Button type="submit">Sign In</Button>
-        <Button type='button' buttonType="google" onClick={logGoogleUser}>Google Me!</Button>
+        <Button buttonType={BUTTON_TYPE_CLASSES.base} type="submit">Sign In</Button>
+        <Button type='button' buttonType={BUTTON_TYPE_CLASSES.google} onClick={logGoogleUser}>Google Me!</Button>
         {/* Use type = button to prevent form submission for sign in */}
         </div>
       </form>

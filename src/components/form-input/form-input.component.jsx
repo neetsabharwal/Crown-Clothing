@@ -1,20 +1,16 @@
-import './form-input.styles.scss';
+import { Group, FormInputLabel, Input } from './form-input.styles.jsx';
 
 const FormInput = ({ label, ...otherProps }) => {
   return (
-    <div className="group">
-      <input className="form-input" {...otherProps}></input> 
+    <Group>
+      <Input {...otherProps}></Input> 
       {/* input needs to be above for shrink animation to work due to '~' in scss */}
       {label && (
-        <label
-          className={`${
-            otherProps.value.length ? "shrink" : ""
-          } form-input-label`}
-        >
+        <FormInputLabel shrink={otherProps.value.length}>
           {label}
-        </label>
+        </FormInputLabel>
       )}
-    </div>
+    </Group>
   );
 };
 
